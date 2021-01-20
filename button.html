@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>buttons</title>
+  <style media="screen">
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      padding: 2em;
+      display: grid;
+      align-content: center;
+      justify-content: stretch;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+
+    .button-group__item {
+      border: 0;
+      padding: 1em 0;
+      border-radius: 0;
+      flex: 1 1 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="button-group"></section>
+
+  <script>
+    const numberOfButtons = 20;
+
+    const makeButton = (number) => {
+      const button = document.createElement('button');
+      button.classList.add('button-group__item')
+      button.textContent = number;
+      button.addEventListener('click', () => {
+        alert(number)
+      });
+      return button;
+    };
+
+    const addButtons = (count) => {
+      for (var i = 1; i <= numberOfButtons; i++) {
+        document.querySelector('.button-group').appendChild(makeButton(i));
+      };
+    };
+
+    addButtons();
+  </script>
+
+</body>
+
+</html>
